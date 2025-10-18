@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Nahwu & Sharaf Dasar - Fathul Hidayah Assabah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-screen" class="screen active">
+        <h1 class="title-main">Kuis Nahwu & Sharaf Dasar</h1>
+        <p class="subtitle">by: Pondok Pesantren Fathul Hidayah Assabah</p>
+        <form id="name-form" class="animated-form">
+            <label for="initial-input">Masukkan Nama / Inisial Anda:</label> 
+            <br>
+            <input type="text" id="initial-input" required placeholder="Contoh: Santri FHA" maxlength="30">
+            <button type="submit" class="start-button">Mulai Kuis</button>
+        </form>
+        <p class="info-text">20 Soal Pilihan Ganda. Jawab dengan jujur ya!</p>
+    </div>
+
+    <div id="quiz-screen" class="screen hidden">
+        <div class="header-quiz">
+            <span id="question-counter">Soal 1 / 20</span>
+            <span id="timer"></span>
+        </div>
+
+        <div id="question-container" class="question-slide-container"></div>
+
+        <div class="navigation-quiz">
+            <button id="next-button" class="nav-button" disabled>Lanjut</button>
+        </div>
+    </div>
+
+    <div id="result-screen" class="screen hidden">
+        <h1 class="result-title">Hasil Kuis Anda</h1>
+        <div class="result-box">
+            <p>Nama/Inisial: <strong id="result-name"></strong></p>
+            <p>Skor Anda: <strong id="result-score"></strong></p>
+            <p>Jawaban Benar: <span id="result-correct-count"></span> soal</p>
+        </div>
+
+        <h3 class="detail-heading">Detail Jawaban Benar (Nomor Soal):</h3>
+        <p id="result-correct-list" class="correct-list"></p>
+
+        <form id="submission-form" action="https://formspree.io/f/xrbydzpd" method="POST" target="hidden-iframe" style="display:none;">
+            <input type="hidden" name="Nama_Peserta" id="form-name">
+            <input type="hidden" name="Skor_Akhir" id="form-score">
+            <input type="hidden" name="Nomor_Benar" id="form-correct-list">
+            <button type="submit" id="submit-result-button">Kirim Otomatis</button>
+        </form>
+        <iframe name="hidden-iframe" style="display:none;"></iframe>
+
+        <p id="submission-status" class="info-text" style="color:#28a745; font-weight:bold; margin-bottom: 20px;">
+            ✅ Hasil Otomatis Dikirim!
+        </p>
+
+        <button id="menu-button" class="start-button submit-button menu-button">⬅️ Kembali ke Menu Kuis</button>
+        <button id="exit-button" class="start-button submit-button" style="background-color: #007bff;">Instagram Pondok</button>
+
+        <p class="thanks-message">Jazakumullah Khairan Katsiran! Silakan klik tombol di atas untuk keluar.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
